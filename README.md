@@ -1,111 +1,108 @@
-Flight Booking Agent App (MakeMyTrip-style)
+✈️ Flight Booking Agent App (MakeMyTrip-Style)
 
-A simple, fully functional flight booking agent simulation written in pure Python.
-Runs in any online Python environment (Chrome-based editors, Repl.it, Google Colab) without any external libraries.
+A simple flight booking agent simulation written in pure Python.
 
-Features
+The application allows users to register, search flights, book seats, and view their booking dashboard — similar to platforms like MakeMyTrip or Skyscanner.
 
-User Management
+It runs in any Python environment (Replit, Google Colab, VS Code, terminal) without external libraries.
+
+🚀 Features
+👤 User Management
 
 Create users with name and email
 
 Prevent duplicate email registration
 
-Flight Management
+Assign unique user IDs
 
-Add flights with airline, flight number, origin, destination, departure/arrival time, price, and seats available
+✈️ Flight Management
 
-Search flights by origin and destination
+Add flights with details including:
 
-Booking & Payment Simulation
+Airline
 
-Book flights for users
+Flight Number
 
-Automatically decrement available seats
+Origin
 
-Simulates payment success
+Destination
 
-User Dashboard
+Departure Time
 
-View all bookings for a user
+Arrival Time
 
-Display flight details and booking status
+Ticket Price
 
-Architecture Overview
+Available Seats
 
-Pure Python in-memory data storage using dictionaries for:
+Users can search flights by origin and destination.
 
-users → stores user info
+💳 Booking & Payment Simulation
 
-flights → stores flight details
+Book flights for registered users
 
-bookings → stores booking info
+Automatically reduce seat availability
 
-Simple counters to assign unique IDs to users, flights, and bookings
+Simulates successful payment
 
-Functions for creating users, adding/searching flights, booking flights, and displaying dashboards
+Generates unique booking ID
 
-Runs entirely in single process, no web server needed
+📊 User Dashboard
 
-Tech Stack
+Users can view:
 
-Python 3.x (no external packages)
+All their bookings
 
-Uses basic data structures (dict) for storage
+Flight details
 
-Fully synchronous, command-line interface
+Booking status
 
-Folder Structure
+Remaining seats
+
+🏗 Architecture Overview
+
+The application uses in-memory data structures:
+
+Storage	Purpose
+users	Stores user details
+flights	Stores flight information
+bookings	Stores booking records
+ID Generation
+
+Simple counters generate unique IDs:
+
+user_id_counter
+
+flight_id_counter
+
+booking_id_counter
+
+🧰 Tech Stack
+
+Python 3.x
+
+No external libraries
+
+Uses built-in dictionary data structures
+
+Fully synchronous CLI application
+
+📁 Project Structure
 flight_booking_app/
 │
-├─ flight_booking.py       # Main Python script with all logic
-└─ README.md              # This documentation
-Usage Example
-1. Run the app
+├── flight_booking.py     # Main application logic
+└── README.md             # Project documentation
+▶️ How to Run
 python flight_booking.py
-2. Sample Flow
-Create Users
-uid1 = create_user("Alice", "alice@example.com")
-uid2 = create_user("Bob", "bob@example.com")
-Add Flights
-fid1 = add_flight("AirPython", "PY101", "DEL", "BOM", "10:00", "12:30", 5000, 5)
-fid2 = add_flight("AirPython", "PY102", "DEL", "BLR", "11:00", "13:30", 4000, 2)
-Search Flights
-results = search_flights("DEL", "BOM")
-for fid, f in results:
-    print(f"Flight ID: {fid}, Flight Number: {f['flight_number']}, Seats: {f['seats_available']}, Price: {f['price']}")
-Book Flights
-book_flight(uid1, fid1)
-book_flight(uid2, fid1)
-View User Dashboard
-user_dashboard(uid1)
-user_dashboard(uid2)
-Example Output
-User created! User ID: 1
-User created! User ID: 2
-Flight added! Flight ID: 1
-Flight added! Flight ID: 2
 
-Searching flights from DEL to BOM:
-Flight ID: 1, Flight Number: PY101, Seats: 5, Price: 5000
+Works in:
 
-Booking flight for Alice:
-Booking confirmed! Booking ID: 1
+Terminal
 
-Booking flight for Bob:
-Booking confirmed! Booking ID: 2
+VS Code
 
-Alice's dashboard:
---- Dashboard for Alice ---
-Booking ID: 1, Flight: PY101 DEL->BOM, Status: CONFIRMED, Seats left: 4
+Replit
 
-Bob's dashboard:
---- Dashboard for Bob ---
-Booking ID: 2, Flight: PY101 DEL->BOM, Status: CONFIRMED, Seats left: 4
+Google Colab
 
-
-
-
-This app does not require FastAPI or any external library.
-
-All data is stored in memory, so exiting the program will reset all users, flights, and bookings.
+Any Python environment
